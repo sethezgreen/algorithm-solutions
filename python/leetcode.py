@@ -11,3 +11,15 @@ class Solution(object):
     
 result = Solution()
 print(result.twoSum([2,5,9,3,1], 14))
+
+# Greatest Candies -- 
+class Solution:
+    def kidsWithCandies(self, candies: List[int], extraCandies: int) -> List[bool]:
+        maxCandies = max(candies)
+        result = []
+        for i in range(len(candies)):
+            if candies[i] + extraCandies >= maxCandies:
+                result.append(True)
+            else:
+                result.append(False)
+        return result
