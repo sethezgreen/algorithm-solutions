@@ -8,17 +8,22 @@
         // value that has not been seen becomes the return
 
 function lonelyInteger(arr) {
-    // sort the ints
+    let seen = []
+    // sort the array
     arr = arr.sort()
-    // define return variable
-    let loneInt
-    // iterate sorted array, checking if either element next to the current is equal
-    for (let i = 0; i < arr.length; i++) {
-        if(arr[i] !== arr[i + 1] || arr[i] !== arr[i - 1]) {
-            loneInt = arr[i]
+    // iterate the array backwards
+    for (let i = arr.length - 1; i >= 0; i--) {
+        // check if arr[i] is in seen
+        if (seen.includes(arr[i])) {
+        } 
+        else if (arr[i] == arr[i - 1]) {
+            seen.push(arr[i])
+        }
+        else {
+            return arr[i]
         }
     }
-    return loneInt
 }
 
+console.log(lonelyInteger([4,2,3,4,3,2,1]))
 console.log(lonelyInteger([1,2,3,4,3,2,1]))
